@@ -4,6 +4,16 @@
 ```
 sudo yum install java-11-openjdk –y
 ```
+### On amazon linux
+```
+sudo amazon-linux-extras enable corretto8
+```
+```
+sudo yum install java-1.8.0-amazon-corretto-devel -y
+```
+```
+sudo yum install java-1.8.0-amazon-corretto
+```
 ## check Java version
 ```
 java -version
@@ -12,7 +22,7 @@ java -version
 
 ## Download binary from Jenkins.io for centos 7
 ```
-yum install wget -y
+sudo yum install wget -y
 ```
 ```
 sudo wget -O /etc/yum.repos.d/jenkins.repo \
@@ -38,7 +48,7 @@ sudo systemctl daemon-reload
 sudo systemctl start jenkins
 ```
 ```
-systemctl enable jenkins
+sudo systemctl enable jenkins
 ```
  ## Open port 8080 using firewall
  ```
@@ -69,6 +79,9 @@ firewall-cmd --list-all
 ### Jenkins SG: inbound: ssh from bastion-sg & custom tcp 0n port 8080 from lb-sg , outbound: all traffic
 ###  LB-sg: inbound: http and  https 80 & 443 from anywhere and outbound: tcp custom tcp on port 8080 to jenkins-sg
 ### Healthcheck in Target group:  /login and port should be 8080 for jenkins
+![image](https://github.com/thedevopsguru1/Jenkins-installation-steps/assets/126810742/33f4dca5-8674-4a79-85cc-c0ed30383c4b)
+
+## NB: If you are using centos 7 instance , please change the user to centos ( remove ec2-user everywhere)
 
  
  
